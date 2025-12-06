@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple API Frontend</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding: 10px; margin: 5px; }
+    #output { margin-top: 20px; padding: 10px; background: #eee; }
+  </style>
+</head>
+<body>
+  <h1>Frontend for Go API</h1>
+
+  <button onclick="callApi('/')">Home</button>
+  <button onclick="callApi('/welcome')">Welcome</button>
+
+  <div id="output">Click a button to call the API</div>
+
+  <script>
+    const API = "https://recursing-albattani-ye1769mqg.liara.run";
+
+    async function callApi(path) {
+      const response = await fetch(API + path);
+      const text = await response.text();
+      document.getElementById("output").innerText = text;
+    }
+  </script>
+</body>
+</html>
